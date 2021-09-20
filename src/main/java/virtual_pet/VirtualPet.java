@@ -27,14 +27,15 @@ public class VirtualPet {
     public void petStatus() {
         if (hungerLevel <= 35) {
             System.out.println("=^._.^=");
-        } else if (hungerLevel <= 65) {
+        } else if (hungerLevel > 35 && hungerLevel <= 65) {
             System.out.println(" (⋟_⋞) ");
-        } else if (hungerLevel >= 100) {
+        } else if (hungerLevel > 65) {
             System.out.println(" X‿X ");
         }
         System.out.println("Pet age is " + age);
         System.out.println("Pet hunger is " + hungerLevel);
-        System.out.println("Pet thirst is " + thirstLevel + "\n");
+        System.out.println("Pet thirst is " + thirstLevel);
+        System.out.println("Pet boredom level is " + boredom +"\n");
     }
 
     public void feed() {
@@ -45,16 +46,17 @@ public class VirtualPet {
     }
 
     public void giveWater() {
-        thirstLevel += 10;
-        hungerLevel += 5;
+        thirstLevel -= 10;
+        hungerLevel -= 5;
+        boredom += 10;
         timeTick++;
         System.out.println("Lion is");
     }
 
-    public void performTricks() {
-        hungerLevel -= 10;
+    public void play() {
+        hungerLevel += 5;
         boredom -= 10;
-        thirstLevel -= 10;
+        thirstLevel += 5;
         timeTick++;
         System.out.println("Pet lion performs tricks!");
     }
@@ -63,11 +65,16 @@ public class VirtualPet {
     public void timePass() {
         timeTick = 0;
         age += 10;
-        hungerLevel += 1;
-        thirstLevel += 1;
+        hungerLevel += 10;
+        thirstLevel += 10;
+
+        if (age > 80) {
+            maneColor = "gray";
+        }
 
         checkHungerMinMax(hungerLevel);
         checkThirstMinMax(thirstLevel);
+        checkBoredomMinMax(boredom);
     }
 
     //Setters
@@ -103,6 +110,17 @@ public class VirtualPet {
             thirstLevel = 0;
         }
         return thirstLevel;
+    }
+
+    private int checkBoredomMinMax(int x) {
+        boredom = x;
+
+        if (boredom > 100) {
+            boredom = 100;
+        } else if (boredom < 0) {
+            boredom = 0;
+        }
+        return boredom;
     }
 
 

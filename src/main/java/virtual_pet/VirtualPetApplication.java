@@ -27,16 +27,16 @@ public class VirtualPetApplication {
         do {
 
             //Check age, (set higher later) if(true) game over
-            if (lion1.getAge() >= 200 ){
+            if (lion1.getAge() >= 120 ){
                 System.out.println("Your lion died of old age.");
                 break;
             }
             //check hunger, if(true) game over
-            if (lion1.getHungerLevel() >= 200) {
+            if (lion1.getHungerLevel() >= 100) {
                 System.out.println("Your lion died of starvation.");
                 break;
             }
-            if (lion1.getThirstLevel() >= 200){
+            if (lion1.getThirstLevel() >= 100){
                 System.out.println("Your lion died of thirst");
                 break;
             }
@@ -44,9 +44,6 @@ public class VirtualPetApplication {
             //check timeTick, if >= 2, call timePass()
             //if timePass() is called, it will internally reset timeTick
             //getTime calls timeTick and evaluates
-            if (lion1.getTime() >= 2) {
-                lion1.timePass();
-            }
 
             System.out.println("What would you like to do?");
             System.out.println("Press 1 for pet status");
@@ -63,10 +60,15 @@ public class VirtualPetApplication {
             } else if (userChoice == 3) {
                 lion1.giveWater();
             } else if (userChoice == 4) {
-                lion1.performTricks();
+                lion1.play();
             } else if (userChoice == 5){
                 break;
             }
+
+            if (lion1.getTime() >= 2) {
+                lion1.timePass();
+            }
+
         } while (userChoice <= 4);
 
         System.out.println("Exiting Program");
