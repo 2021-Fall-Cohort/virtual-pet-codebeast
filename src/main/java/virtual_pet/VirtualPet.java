@@ -5,10 +5,10 @@ public class VirtualPet {
     private String maneColor;
 
     private int age = 10;
-    private int hungerLevel = 10;
-    private int thirstLevel = 20;
-    private int boredom;
-    private int timeTick = 0;
+    private int hungerLevel = 50;
+    private int thirstLevel = 50;
+
+
 
 
     //This is our constructor
@@ -35,35 +35,33 @@ public class VirtualPet {
         System.out.println("Pet age is " + age);
         System.out.println("Pet hunger is " + hungerLevel);
         System.out.println("Pet thirst is " + thirstLevel);
-        System.out.println("Pet boredom level is " + boredom +"\n");
+
     }
 
     public void feed() {
         hungerLevel -= 10;
-        boredom += 10;
-        timeTick++;
+
+
         System.out.println("Lion devours a bleeding rib-eye.");
     }
 
     public void giveWater() {
         thirstLevel -= 10;
         hungerLevel -= 5;
-        boredom += 10;
-        timeTick++;
-        System.out.println("Lion is");
+
+
     }
 
     public void play() {
         hungerLevel += 5;
-        boredom -= 10;
+
         thirstLevel += 5;
-        timeTick++;
+
         System.out.println("Pet lion performs tricks!");
     }
 
     //for every 2 actions (feed, performTricks) time will increment
     public void timePass() {
-        timeTick = 0;
         age += 10;
         hungerLevel += 10;
         thirstLevel += 10;
@@ -72,9 +70,8 @@ public class VirtualPet {
             maneColor = "gray";
         }
 
-        checkHungerMinMax(hungerLevel);
-        checkThirstMinMax(thirstLevel);
-        checkBoredomMinMax(boredom);
+
+
     }
 
     //Setters
@@ -90,38 +87,29 @@ public class VirtualPet {
         this.maneColor = maneColor;
     }
 
-    private int checkHungerMinMax(int x) {
-        hungerLevel = x;
+//    private int checkHungerMinMax(int x) {
+//        hungerLevel = x;
+//
+//        if (hungerLevel > 100) {
+//            hungerLevel = 100;
+//        } else if (hungerLevel < 0) {
+//            hungerLevel = 0;
+//        }
+//        return hungerLevel;
+//    }
+//
+//    private int checkThirstMinMax(int x) {
+//        thirstLevel = x;
+//
+//        if (thirstLevel > 100) {
+//            thirstLevel = 100;
+//        } else if (thirstLevel < 0) {
+//            thirstLevel = 0;
+//        }
+//        return thirstLevel;
+//    }
 
-        if (hungerLevel > 100) {
-            hungerLevel = 100;
-        } else if (hungerLevel < 0) {
-            hungerLevel = 0;
-        }
-        return hungerLevel;
-    }
 
-    private int checkThirstMinMax(int x) {
-        thirstLevel = x;
-
-        if (thirstLevel > 100) {
-            thirstLevel = 100;
-        } else if (thirstLevel < 0) {
-            thirstLevel = 0;
-        }
-        return thirstLevel;
-    }
-
-    private int checkBoredomMinMax(int x) {
-        boredom = x;
-
-        if (boredom > 100) {
-            boredom = 100;
-        } else if (boredom < 0) {
-            boredom = 0;
-        }
-        return boredom;
-    }
 
 
     //Getters
@@ -133,16 +121,12 @@ public class VirtualPet {
         return hungerLevel;
     }
 
-    public int getTime() {
-        return timeTick;
-    }
+
 
     public int getThirstLevel() {
         return thirstLevel;
     }
 
-    public int getBoredom() {
-        return boredom;
-    }
+
 
 }

@@ -21,7 +21,7 @@ public class VirtualPetApplication {
         String maneColor = userInput.next();
         lion1.setManeColor(maneColor);
 
-        lion1.greeting();
+       lion1.greeting();
 
         int userChoice = 0;
         do {
@@ -32,12 +32,20 @@ public class VirtualPetApplication {
                 break;
             }
             //check hunger, if(true) game over
-            if (lion1.getHungerLevel() >= 100) {
+            if (lion1.getHungerLevel() >= 110 ) {
                 System.out.println("Your lion died of starvation.");
                 break;
             }
-            if (lion1.getThirstLevel() >= 100){
+            if (lion1.getThirstLevel() >= 110) {
                 System.out.println("Your lion died of thirst");
+                break;
+            }
+            if(lion1.getThirstLevel() <=0){
+                System.out.println("You bursted your lions belly with fluid. GAME OVER");
+                break;
+            }
+            if(lion1.getHungerLevel() <= 0){
+                System.out.println(" You overfed your lion. GAME OVER! ");
                 break;
             }
 
@@ -65,9 +73,9 @@ public class VirtualPetApplication {
                 break;
             }
 
-            if (lion1.getTime() >= 2) {
+
                 lion1.timePass();
-            }
+
 
         } while (userChoice <= 4);
 
