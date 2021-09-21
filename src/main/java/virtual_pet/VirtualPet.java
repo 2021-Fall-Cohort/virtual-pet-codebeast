@@ -4,7 +4,7 @@ public class VirtualPet {
     private String name;
     private String maneColor;
 
-    private int age = 10;
+    private int age;
     private int hungerLevel = 50;
     private int thirstLevel = 50;
 

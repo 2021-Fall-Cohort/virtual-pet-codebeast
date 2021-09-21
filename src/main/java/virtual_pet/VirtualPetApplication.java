@@ -44,7 +44,7 @@ public class VirtualPetApplication {
                 System.out.println("You bursted your lions belly with fluid. GAME OVER");
                 break;
             }
-            if(lion1.getHungerLevel() <= 0){
+            if( lion1.getHungerLevel() <= 0){
                 System.out.println(" You overfed your lion. GAME OVER! ");
                 break;
             }
