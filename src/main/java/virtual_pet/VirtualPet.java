@@ -2,7 +2,6 @@ package virtual_pet;
 
 public class VirtualPet {
     private String name;
-    private String maneColor;
 
     private int age;
     private int hungerLevel = 50;
@@ -12,16 +11,16 @@ public class VirtualPet {
 
 
     //This is our constructor
-    public VirtualPet(String name, String maneColor) {
+    public VirtualPet(String name) {
         this.name = name;
-        this.maneColor = maneColor;
+
     }
 
     // General Methods for Pet
     public void greeting() {
-        System.out.println("Hey my name is " + name
-                + " I am a lion who's age is " + age
-                + " my mane color is " + maneColor);
+//        System.out.println("Hey my name is " + name
+//                + " I am a lion who's age is " + age
+//                + " my mane color is " + maneColor);
     }
 
     public void petStatus() {
@@ -43,6 +42,10 @@ public class VirtualPet {
 
 
         System.out.println("Lion devours a bleeding rib-eye.");
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void giveWater() {
@@ -67,7 +70,7 @@ public class VirtualPet {
         thirstLevel += 10;
 
         if (age > 80) {
-            maneColor = "gray";
+            //maneColor = "gray";
         }
 
 
@@ -83,10 +86,10 @@ public class VirtualPet {
         this.age = age;
     }
 
-    public void setManeColor(String maneColor) {
-        this.maneColor = maneColor;
-    }
-
+//    public void setManeColor(String maneColor) {
+//        this.maneColor = maneColor;
+//    }
+//
 //    private int checkHungerMinMax(int x) {
 //        hungerLevel = x;
 //
