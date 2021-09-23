@@ -15,12 +15,15 @@ public class VirtualPetApplication {
         Scanner userInput = new Scanner(System.in);
         //VirtualPet lion1 = new VirtualPet(" ", " ");
 
-
-
         VirtualPetShelter something = new VirtualPetShelter();
-        for(Lion currentLion: something.getPets()){
-            System.out.println(currentLion.getName() + "has a mane of color: " + currentLion.getManeColor());
-        }
+        something.displayAllPetsDescriptions();
+        something.displayHealthStatus();
+        createPet(something);
+
+//        VirtualPetShelter something = new VirtualPetShelter();
+//        for(Lion currentLion: something.getPets()){
+//            System.out.println(currentLion.getName() + " has a mane of color: " + currentLion.getManeColor() + " and is " + currentLion.getAge() + " years old ");
+//        }
 //        something.getPet(0);
 //
 //
@@ -95,5 +98,31 @@ public class VirtualPetApplication {
 //
 //        System.out.println("Exiting Program");
 //        System.exit(0);
+    }
+    public void createPet(VirtualPetShelter shelter){
+
+
+        System.out.println("Please enter the pet's name");
+            Scanner addName = new Scanner(System.in);
+            String name = (addName.nextLine());
+
+            System.out.println("Please enter the pet's age");
+            Scanner addAge = new Scanner(System.in);
+            int age = (addName.nextInt());
+            addName.nextLine();
+
+            System.out.println("Please enter the pet's Hunger.");
+            Scanner addHunger = new Scanner(System.in);
+            int hunger = (addHunger.nextInt());
+
+            System.out.println("Please enter the pet's Thirst.");
+            Scanner addThirst = new Scanner(System.in);
+            int thirst = (addThirst.nextInt());
+
+            System.out.println("Please enter the type of pet: ");
+
+
+            Lion myLion = new Lion(name,age,thirst,hunger);
+            shelter.addPetToShelter(myLion);
     }
 }

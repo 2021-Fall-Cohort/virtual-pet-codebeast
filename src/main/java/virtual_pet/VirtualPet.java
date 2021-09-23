@@ -1,18 +1,23 @@
 package virtual_pet;
 
-public class VirtualPet {
+public abstract class VirtualPet {
     private String name;
 
     private int age;
-    private int hungerLevel = 50;
-    private int thirstLevel = 50;
+    private String description;
+    private int hungerLevel;
+    private int thirstLevel;
+
 
 
 
 
     //This is our constructor
-    public VirtualPet(String name) {
+    public VirtualPet(String name,int age,int hungerLevel, int thirstLevel) {
         this.name = name;
+        this.age = age;
+        this.hungerLevel= hungerLevel;
+        this.thirstLevel=thirstLevel;
 
     }
 
@@ -115,7 +120,7 @@ public class VirtualPet {
 
 
 
-    //Getters
+
     public int getAge() {
         return age;
     }
