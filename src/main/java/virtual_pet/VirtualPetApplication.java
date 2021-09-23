@@ -13,18 +13,46 @@ public class VirtualPetApplication {
     public void game() {
 
         VirtualPetShelter adoptionCenter = new VirtualPetShelter();
-        String selection = "";
-        do {
-            System.out.println("Press q to quit");
-            selection = mainScanner.nextLine().toLowerCase();
 
-            adoptionCenter.displayAllPetsDescriptions();
+
+        System.out.println("\nWelcome to Virtual Pet Shelter App!\n" +
+                "The goal is to care for pets and get them to adoptable status.\n" +
+                "Try not to kill any thing.\n");
+        int selection = 0;
+        do {
+
+            //adoptionCenter.displayAllPetsDescriptions();
             adoptionCenter.displayHealthStatus();
 
+            System.out.println("\nPress 1 to feed the pets.");
+            System.out.println("Press 2 to give the pets water");
+            System.out.println("Press 3 to entertain/play with pets.");
+            System.out.println("Press 4 to admit a pet into shelter!");
+            System.out.println("Press 5 to find pet a good home (must be healthy and happy)");
+            System.out.println("Press 6 to slaughter pet.\n");
+            selection = mainScanner.nextInt();
+
+            if (selection == 1){
+                adoptionCenter.petShelter.get(0).feed();
+                adoptionCenter.petShelter.get(1).feed();
+                adoptionCenter.petShelter.get(2).feed();
+
+            } else if (selection == 2 ){
+
+            } else if (selection == 3) {
+
+            } else if (selection == 4) {
+
+            } else if (selection == 5) {
+
+            } else if (selection == 6) {
+
+            }
+
             //study this
-            adoptionCenter.addPetToShelter(admitPet());
+
         }
-        while (selection != "q");
+        while (selection != 9);
     }
 
     public VirtualPet admitPet() {

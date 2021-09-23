@@ -1,11 +1,12 @@
 package virtual_pet;
 
 public abstract class VirtualPet {
-    private String name;
-    private int age;
-    private String description;
-    private int hungerLevel;
-    private int thirstLevel;
+    protected String name;
+    protected int age;
+    protected String description;
+    protected int hungerLevel;
+    protected int thirstLevel;
+    protected int boredomLevel;
 
     //This is our constructor
     public VirtualPet(String name, int age, int hungerLevel, int thirstLevel) {
@@ -13,6 +14,7 @@ public abstract class VirtualPet {
         this.age = age;
         this.hungerLevel = hungerLevel;
         this.thirstLevel = thirstLevel;
+        this.boredomLevel = 50;
     }
 
     public void petStatus() {
@@ -28,31 +30,19 @@ public abstract class VirtualPet {
         System.out.println("Pet thirst is " + thirstLevel);
     }
 
-    public void feed() {
-        hungerLevel -= 10;
-        System.out.println("Lion devours a bleeding rib-eye.");
-    }
+    protected abstract void feed();
 
-    public void giveWater() {
-        thirstLevel -= 10;
-        hungerLevel -= 5;
-    }
+    protected abstract void giveWater();
 
-    public void play() {
-        hungerLevel += 5;
-        thirstLevel += 5;
-        System.out.println("Pet performs tricks!");
-    }
+    protected abstract void play();
 
     //getters
     public int getAge() {
         return age;
     }
-
     public int getHungerLevel() {
         return hungerLevel;
     }
-
     public int getThirstLevel() {
         return thirstLevel;
     }

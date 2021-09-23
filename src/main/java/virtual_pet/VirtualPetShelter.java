@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class VirtualPetShelter {
 
+    private int petsAdopted = 0;
+    private int deathToll = 0;
+
     ArrayList<VirtualPet> petShelter;
 
     String heading1 = "Name";
@@ -16,7 +19,6 @@ public class VirtualPetShelter {
         petShelter.add(new Lion("Simba", 5, 5, 25));
         petShelter.add(new Lion("Mufassa", 3, 13, 50));
         petShelter.add(new Dog("Spot", 4, 55, 60));
-
     }
 
     //getters
