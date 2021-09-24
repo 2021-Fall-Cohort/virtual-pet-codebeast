@@ -34,15 +34,15 @@ public class VirtualPetApplication {
             mainScanner.nextLine();
 
             if (selection == 1) {
-                for (int i = 0; i < adoptionCenter.petShelter.size() - 1; i++) {
+                for (int i = 0; i < adoptionCenter.petShelter.size(); i++) {
                     adoptionCenter.petShelter.get(i).feed();
                 }
             } else if (selection == 2) {
-                for (int i = 0; i < adoptionCenter.petShelter.size() - 1; i++) {
+                for (int i = 0; i < adoptionCenter.petShelter.size() ; i++) {
                     adoptionCenter.petShelter.get(i).giveWater();
                 }
             } else if (selection == 3) {
-                for (int i = 0; i < adoptionCenter.petShelter.size() - 1; i++) {
+                for (int i = 0; i < adoptionCenter.petShelter.size() ; i++) {
                     adoptionCenter.petShelter.get(i).play();
                 }
             } else if (selection == 4) {
@@ -57,11 +57,13 @@ public class VirtualPetApplication {
                 }
 
             } else if (selection == 6) {
-
+                adoptionCenter.tick();
             }
         }
         while (selection != 9);
     }
+
+
 
     public VirtualPet admitPet() {
 
@@ -78,7 +80,7 @@ public class VirtualPetApplication {
         int addThirst = mainScanner.nextInt();
         mainScanner.nextLine();
 
-        System.out.println("Please enter the type of pet (Lion or Dog)");
+        System.out.println("Please enter the type of pet (Lion,Dog, or Monkey)");
         String petType = mainScanner.nextLine();
 
         if (petType.equalsIgnoreCase("lion")) {
@@ -96,6 +98,7 @@ public class VirtualPetApplication {
         Dog myDog = new Dog(addName, addAge, addThirst, addHunger);
         return myDog;
     }
+
 
 //adopting a pet = removing from shelter
 

@@ -12,13 +12,18 @@ public class VirtualPetShelter {
     String heading1 = "Name";
     String heading2 = "|Hunger";
     String heading3 = "|Thirst";
-    String divider = "---------|-------|-------|-------";
+    String heading4 = "|Boredom|";
+    String heading5 = "|Adoptable|";
+    String divider = "---------|-------|-------|-------|-------";
 
     public VirtualPetShelter() {
         petShelter = new ArrayList<VirtualPet>();
-        petShelter.add(new Lion("Simba", 5, 5, 25));
-        petShelter.add(new Lion("Mufassa", 3, 13, 50));
-        petShelter.add(new Dog("Spot", 4, 55, 60));
+        petShelter.add(new Lion("Simba", 25, 25, 25));
+        petShelter.add(new Lion("Mufassa", 50, 50, 50));
+        petShelter.add(new Dog("Spot", 25, 25, 25));
+        petShelter.add(new Dog("Copie", 50, 50, 50));
+        petShelter.add(new Monkey("Jumpie", 25, 25, 25));
+        petShelter.add(new Monkey("Apu", 50, 50, 50));
     }
 
     //getters
@@ -30,15 +35,23 @@ public class VirtualPetShelter {
     }
 
     public void displayHealthStatus() {
-        System.out.printf("%-8s %-7s %-7s  %n", heading1, heading2, heading3);
+        System.out.printf("%-8s %-7s %-7s %-7s %-7s %n", heading1, heading2, heading3, heading4, heading5);
         System.out.println(divider);
         for (int i = 0; i < petShelter.size(); i++) {
-            System.out.printf("%-10s %-7s %-7s  %n", petShelter.get(i).getName(),
-                    petShelter.get(i).getHungerLevel(), petShelter.get(i).getThirstLevel());
+            System.out.printf("%-10s %-7s %-7s %-7s %-7s  %n", petShelter.get(i).getName(),
+                    petShelter.get(i).getHungerLevel(), petShelter.get(i).getThirstLevel(), petShelter.get(i).getBoredomLevel(), petShelter.get(i).isCanAdopt());
         }
     }
 
-        public void addPetToShelter(VirtualPet pet) {
-            petShelter.add(pet);
-        }
+    public void addPetToShelter(VirtualPet pet) {
+        petShelter.add(pet);
+    }
+
+    public void removePetFromShelter(VirtualPet pet) {
+        petShelter.remove(pet);
+    }
+    public void tick(){
+
+
+    }
 }

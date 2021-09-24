@@ -3,7 +3,7 @@ package virtual_pet;
 public abstract class VirtualPet {
     protected String name;
     protected int age;
-    protected String description;
+
     protected int hungerLevel;
     protected int thirstLevel;
 
@@ -15,7 +15,7 @@ public abstract class VirtualPet {
         this.age = age;
         this.hungerLevel = hungerLevel;
         this.thirstLevel = thirstLevel;
-        this.boredomLevel = 50;
+        this.boredomLevel = boredomLevel;
         this.canAdopt = false;
     }
 
@@ -42,10 +42,27 @@ public abstract class VirtualPet {
         return name;
     }
 
+    public int getBoredomLevel() {
+        return boredomLevel;
+    }
+
+    public boolean isCanAdopt() {
+        return canAdopt;
+    }
+
     //setters
 
-    protected int setMinMaxHunger(int hungerLevel) {
-        if (hungerLevel > 100) {
+//    protected int setMinMaxHunger(int hungerLevel) {
+//        if (hungerLevel > 100) {
+//            hungerLevel = 100;
+//        } else if (hungerLevel < 0) {
+//            hungerLevel = 0;
+//        }
+//        return hungerLevel;
+//    }
+
+    public int setMinMaxHunger(int n) {
+        if (hungerLevel > 100 ) {
             hungerLevel = 100;
         } else if (hungerLevel < 0) {
             hungerLevel = 0;
@@ -53,8 +70,8 @@ public abstract class VirtualPet {
         return hungerLevel;
     }
 
-    protected int setMinMaxThirst(int thirstLevel) {
-        if (thirstLevel > 100) {
+    public int setMinMaxThirst(int n) {
+        if (thirstLevel > 100 ) {
             thirstLevel = 100;
         } else if (thirstLevel < 0) {
             thirstLevel = 0;
@@ -62,7 +79,7 @@ public abstract class VirtualPet {
         return thirstLevel;
     }
 
-    protected int setMinMaxBoredom(int boredomLevel) {
+    public int setMinMaxBoredom(int n) {
         if (boredomLevel > 100) {
             boredomLevel = 100;
         } else if (boredomLevel < 0) {
@@ -70,7 +87,15 @@ public abstract class VirtualPet {
         }
         return boredomLevel;
     }
+
+    public void tick(){
+        hungerLevel +=10;
+        thirstLevel +=10;
+        boredomLevel+=10;
+
+    }
 }
+
 
 //    public void petStatus() {
 //        if (hungerLevel <= 35) {

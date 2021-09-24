@@ -28,6 +28,6 @@ public class Dog extends VirtualPet{
     protected void play() {
         boredomLevel -= 10;
         System.out.println(" ");
-        setMinMaxBoredom(boredomLevel);
+      setMinMaxBoredom(boredomLevel);
     }
 }
