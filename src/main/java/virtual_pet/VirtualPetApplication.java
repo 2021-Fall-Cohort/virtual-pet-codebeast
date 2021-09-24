@@ -19,6 +19,7 @@ public class VirtualPetApplication {
                 "The goal is to care for pets and get them to adoptable status.\n" +
                 "Try not to kill any thing.\n");
         int selection = 0;
+        boolean petsAlive = true;
         do {
 
             //adoptionCenter.displayAllPetsDescriptions();
@@ -34,78 +35,51 @@ public class VirtualPetApplication {
             mainScanner.nextLine();
 
             if (selection == 1) {
-                for (int i = 0; i < adoptionCenter.petShelter.size(); i++) {
-                    adoptionCenter.petShelter.get(i).feed();
-                }
+                adoptionCenter.feedAllPets();
             } else if (selection == 2) {
-                for (int i = 0; i < adoptionCenter.petShelter.size() ; i++) {
-                    adoptionCenter.petShelter.get(i).giveWater();
-                }
+                adoptionCenter.giveWaterToAllPets();
             } else if (selection == 3) {
-                for (int i = 0; i < adoptionCenter.petShelter.size() ; i++) {
-                    adoptionCenter.petShelter.get(i).play();
-                }
+                adoptionCenter.playWithAllPets();
             } else if (selection == 4) {
-                adoptionCenter.petShelter.add(admitPet());
+                adoptionCenter.admitPet();
             } else if (selection == 5) {
-                System.out.println("Which pet did you find a home for?");
-                int petSelect = mainScanner.nextInt();
-                if (adoptionCenter.petShelter.get(petSelect).canAdopt) {
-                    adoptionCenter.petShelter.remove(petSelect);
-                } else {
-                    System.out.println("Pet is in not ready to leave shelter.");
-                }
-
+                adoptionCenter.removePetFromShelter();
             } else if (selection == 6) {
-                adoptionCenter.tick();
             }
+            if (!adoptionCenter.allPetsAlive()) {
+                petsAlive = false;
+                System.out.println("Pet has died!");
+            }
+
         }
-        while (selection != 9);
+        while (selection != 9 && petsAlive);
+        System.out.println("Game Over!");
     }
-
-
-
-    public VirtualPet admitPet() {
-
-        System.out.println("Please enter the pet's name");
-        String addName = mainScanner.nextLine();
-
-        System.out.println("Please enter the pet's age");
-        int addAge = mainScanner.nextInt();
-
-        System.out.println("Please enter the pet's Hunger.");
-        int addHunger = mainScanner.nextInt();
-
-        System.out.println("Please enter the pet's Thirst.");
-        int addThirst = mainScanner.nextInt();
-        mainScanner.nextLine();
-
-        System.out.println("Please enter the type of pet (Lion,Dog, or Monkey)");
-        String petType = mainScanner.nextLine();
-
-        if (petType.equalsIgnoreCase("lion")) {
-            Lion myLion = new Lion(addName, addAge, addThirst, addHunger);
-            return myLion;
-        } else if (petType.equalsIgnoreCase("dog")) {
-            Dog myDog = new Dog(addName, addAge, addThirst, addHunger);
-            return myDog;
-        } else if (petType.equalsIgnoreCase("monkey")) {
-            Monkey myMonkey = new Monkey(addName, addAge, addThirst, addHunger);
-            return myMonkey;
-        }
-
-        //temp
-        Dog myDog = new Dog(addName, addAge, addThirst, addHunger);
-        return myDog;
-    }
-
-
-//adopting a pet = removing from shelter
-
-//you can only remove pets with all stats > 90
-
-//goal to get rid of all pets
-// if pet dies, auto-admit another one, deathcounter++
-// game over is deathcounter > 2;
-
 }
+//            } else if (selection == 5) {
+//                System.out.println("Which pet did you find a home for?");
+//                int petSelect = mainScanner.nextInt();
+//                if (adoptionCenter.petShelter.get(petSelect).canAdopt) {
+//                    adoptionCenter.petShelter.remove(petSelect);
+//                } else {
+//                    System.out.println("Pet is in not ready to leave shelter.");
+//                }
+//
+//            } else if (selection == 6) {
+//
+//            }
+//            if (!adoptionCenter.allPetsAlive()){
+//                petsAlive = false;
+//                System.out.println("Pet has died!");
+//            }
+//            adoptionCenter.tick();
+//        }
+//        while (selection != 9 && petsAlive);
+//        System.out.println("Game Over!");
+//    }
+
+
+
+
+
+

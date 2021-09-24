@@ -15,6 +15,7 @@ public class Dog extends VirtualPet{
         hungerLevel -= 10;
         System.out.println(" ");
         setMinMaxHunger(hungerLevel);
+        System.out.println("I love Dog Treats!");
     }
 
     @Override

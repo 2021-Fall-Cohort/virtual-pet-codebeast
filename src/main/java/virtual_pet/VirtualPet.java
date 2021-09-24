@@ -10,6 +10,7 @@ public abstract class VirtualPet {
     protected int boredomLevel;
     protected boolean canAdopt;
 
+
     public VirtualPet(String name, int age, int hungerLevel, int thirstLevel) {
         this.name = name;
         this.age = age;
@@ -48,6 +49,12 @@ public abstract class VirtualPet {
 
     public boolean isCanAdopt() {
         return canAdopt;
+    }
+    public boolean isAlive(){
+        if(hungerLevel == 100 || thirstLevel == 100 || boredomLevel == 100){
+            return false;
+        }
+        return true;
     }
 
     //setters
