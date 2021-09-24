@@ -31,26 +31,34 @@ public class VirtualPetApplication {
             System.out.println("Press 5 to find pet a good home (must be healthy and happy)");
             System.out.println("Press 6 to slaughter pet.\n");
             selection = mainScanner.nextInt();
+            mainScanner.nextLine();
 
-            if (selection == 1){
-                adoptionCenter.petShelter.get(0).feed();
-                adoptionCenter.petShelter.get(1).feed();
-                adoptionCenter.petShelter.get(2).feed();
-
-            } else if (selection == 2 ){
-
+            if (selection == 1) {
+                for (int i = 0; i < adoptionCenter.petShelter.size() - 1; i++) {
+                    adoptionCenter.petShelter.get(i).feed();
+                }
+            } else if (selection == 2) {
+                for (int i = 0; i < adoptionCenter.petShelter.size() - 1; i++) {
+                    adoptionCenter.petShelter.get(i).giveWater();
+                }
             } else if (selection == 3) {
-
+                for (int i = 0; i < adoptionCenter.petShelter.size() - 1; i++) {
+                    adoptionCenter.petShelter.get(i).play();
+                }
             } else if (selection == 4) {
-
+                adoptionCenter.petShelter.add(admitPet());
             } else if (selection == 5) {
+                System.out.println("Which pet did you find a home for?");
+                int petSelect = mainScanner.nextInt();
+                if (adoptionCenter.petShelter.get(petSelect).canAdopt) {
+                    adoptionCenter.petShelter.remove(petSelect);
+                } else {
+                    System.out.println("Pet is in not ready to leave shelter.");
+                }
 
             } else if (selection == 6) {
 
             }
-
-            //study this
-
         }
         while (selection != 9);
     }
@@ -90,7 +98,9 @@ public class VirtualPetApplication {
     }
 
 //adopting a pet = removing from shelter
+
 //you can only remove pets with all stats > 90
+
 //goal to get rid of all pets
 // if pet dies, auto-admit another one, deathcounter++
 // game over is deathcounter > 2;
