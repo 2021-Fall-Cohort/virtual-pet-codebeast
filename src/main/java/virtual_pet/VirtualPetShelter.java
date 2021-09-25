@@ -36,6 +36,7 @@ public class VirtualPetShelter {
             System.out.println("");
         }
     }
+
     public void displayHealthStatus() {
         System.out.printf("%-8s %-7s %-7s %-7s %-7s %n", heading1, heading2, heading3, heading4, heading5);
         System.out.println(divider);
@@ -44,24 +45,39 @@ public class VirtualPetShelter {
                     petShelter.get(i).getHungerLevel(), petShelter.get(i).getThirstLevel(), petShelter.get(i).getBoredomLevel(), petShelter.get(i).isCanAdopt());
         }
     }
+
     public void addPetToShelter(VirtualPet pet) {
         petShelter.add(pet);
     }
 
     public void removePetFromShelter() {
         System.out.println("Which pet did you find a home for?");
-        int selectRemoval = mainScanner.nextInt();
-        petShelter.remove(selectRemoval);
+
+        String selectRemoval = mainScanner.nextLine();
+        int missCounter = 0;
+        for (int i = 0; i < petShelter.size(); i++) {
+            if (selectRemoval.equalsIgnoreCase(petShelter.get(i).getName())) {
+                System.out.println(petShelter.get(i).getName() + " has been sent to their new home!\n");
+                petShelter.remove(i);
+            } else {
+                missCounter++;
+            }
+        }
+        if (missCounter >= petShelter.size()) {
+            System.out.println("Pet not found.\n");
+        }
     }
 
     public ArrayList<VirtualPet> getPets() {
         return petShelter;
     }
+
     public void tick() {
         for (VirtualPet pet : petShelter) {
             pet.tick();
         }
     }
+
     public boolean allPetsAlive() {
         for (VirtualPet pet : petShelter) {
             if (!pet.isAlive()) {
@@ -70,16 +86,19 @@ public class VirtualPetShelter {
         }
         return true;
     }
+
     public void feedAllPets() {
         for (VirtualPet pet : petShelter) {
             pet.feed();
         }
     }
+
     public void giveWaterToAllPets() {
         for (VirtualPet pet : petShelter) {
             pet.giveWater();
         }
     }
+
     public void playWithAllPets() {
         for (VirtualPet pet : petShelter) {
             pet.play();
