@@ -58,16 +58,6 @@ public abstract class VirtualPet {
     }
 
     //setters
-
-//    protected int setMinMaxHunger(int hungerLevel) {
-//        if (hungerLevel > 100) {
-//            hungerLevel = 100;
-//        } else if (hungerLevel < 0) {
-//            hungerLevel = 0;
-//        }
-//        return hungerLevel;
-//    }
-
     public int setMinMaxHunger(int n) {
         if (hungerLevel > 100 ) {
             hungerLevel = 100;
@@ -102,17 +92,3 @@ public abstract class VirtualPet {
 
     }
 }
-
-
-//    public void petStatus() {
-//        if (hungerLevel <= 35) {
-//            System.out.println("=^._.^=");
-//        } else if (hungerLevel > 35 && hungerLevel <= 65) {
-//            System.out.println(" (⋟_⋞) ");
-//        } else if (hungerLevel > 65) {
-//            System.out.println(" X‿X ");
-//        }
-//        System.out.println("Pet age is " + age);
-//        System.out.println("Pet hunger is " + hungerLevel);
-//        System.out.println("Pet thirst is " + thirstLevel);
-//    }

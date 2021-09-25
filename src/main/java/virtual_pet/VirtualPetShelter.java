@@ -16,6 +16,7 @@ public class VirtualPetShelter {
     String heading4 = "|Boredom|";
     String heading5 = "|Adoptable|";
     String divider = "---------|-------|-------|-------|-------";
+
     Scanner mainScanner = new Scanner(System.in);
 
     public VirtualPetShelter() {
@@ -35,7 +36,6 @@ public class VirtualPetShelter {
             System.out.println("");
         }
     }
-
     public void displayHealthStatus() {
         System.out.printf("%-8s %-7s %-7s %-7s %-7s %n", heading1, heading2, heading3, heading4, heading5);
         System.out.println(divider);
@@ -44,28 +44,24 @@ public class VirtualPetShelter {
                     petShelter.get(i).getHungerLevel(), petShelter.get(i).getThirstLevel(), petShelter.get(i).getBoredomLevel(), petShelter.get(i).isCanAdopt());
         }
     }
-
     public void addPetToShelter(VirtualPet pet) {
         petShelter.add(pet);
     }
 
     public void removePetFromShelter() {
         System.out.println("Which pet did you find a home for?");
-
-    petShelter.remove(petShelter);
+        int selectRemoval = mainScanner.nextInt();
+        petShelter.remove(selectRemoval);
     }
 
     public ArrayList<VirtualPet> getPets() {
         return petShelter;
     }
-
-
     public void tick() {
         for (VirtualPet pet : petShelter) {
             pet.tick();
         }
     }
-
     public boolean allPetsAlive() {
         for (VirtualPet pet : petShelter) {
             if (!pet.isAlive()) {
@@ -74,26 +70,23 @@ public class VirtualPetShelter {
         }
         return true;
     }
-
     public void feedAllPets() {
         for (VirtualPet pet : petShelter) {
             pet.feed();
         }
     }
-
     public void giveWaterToAllPets() {
         for (VirtualPet pet : petShelter) {
             pet.giveWater();
         }
     }
-
     public void playWithAllPets() {
         for (VirtualPet pet : petShelter) {
             pet.play();
         }
     }
 
-    public void  admitPet() {
+    public void admitPet() {
 
         System.out.println("Please enter the pet's name");
         String addName = mainScanner.nextLine();
@@ -121,6 +114,5 @@ public class VirtualPetShelter {
             Monkey myMonkey = new Monkey(addName, addAge, addThirst, addHunger);
             petShelter.add(myMonkey);
         }
-
     }
 }

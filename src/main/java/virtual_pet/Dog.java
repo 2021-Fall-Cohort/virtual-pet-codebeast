@@ -2,8 +2,6 @@ package virtual_pet;
 
 public class Dog extends VirtualPet{
 
-    private boolean isTrainable;
-
     public Dog(String name, int age, int hungerLevel, int thirstLevel) {
         super(name, age, hungerLevel, thirstLevel);
         this.boredomLevel = 50;
@@ -12,7 +10,7 @@ public class Dog extends VirtualPet{
 
     @Override
     protected void feed() {
-        hungerLevel -= 10;
+        hungerLevel -= 20;
         System.out.println(" ");
         setMinMaxHunger(hungerLevel);
         System.out.println("I love Dog Treats!");
@@ -20,14 +18,14 @@ public class Dog extends VirtualPet{
 
     @Override
     protected void giveWater() {
-        thirstLevel -= 10;
+        thirstLevel -= 20;
         System.out.println(" ");
         setMinMaxThirst(thirstLevel);
     }
 
     @Override
     protected void play() {
-        boredomLevel -= 10;
+        boredomLevel -= 20;
         System.out.println(" ");
       setMinMaxBoredom(boredomLevel);
     }
