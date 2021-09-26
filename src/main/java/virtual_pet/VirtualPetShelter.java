@@ -22,10 +22,7 @@ public class VirtualPetShelter {
     public VirtualPetShelter() {
         petShelter = new ArrayList<VirtualPet>();
         petShelter.add(new Lion("Simba", 25, 25, 25));
-        petShelter.add(new Lion("Mufassa", 50, 50, 50));
         petShelter.add(new Dog("Spot", 25, 25, 25));
-        petShelter.add(new Dog("Copie", 50, 50, 50));
-        petShelter.add(new Monkey("Jumpie", 25, 25, 25));
         petShelter.add(new Monkey("Apu", 50, 50, 50));
     }
 

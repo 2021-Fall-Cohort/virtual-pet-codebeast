@@ -53,8 +53,18 @@ public class VirtualPetApplication {
                 System.out.println("Pet has died!");
             }
 
+            //empty shelter = game over
+            if (adoptionCenter.getPets().size() == 0){
+                System.out.println("All pets have found a home! You win!");
+                petsAlive = false;
+            }
+
         }
         while (selection != 9 && petsAlive);
         System.out.println("Game Over!");
     }
 }
+
+//left to implement
+// all pets gone - game over
+//
