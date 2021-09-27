@@ -58,7 +58,7 @@ public class VirtualPetApplication {
                 System.out.println("All pets have found a home! You win!");
                 petsAlive = false;
             }
-
+                adoptionCenter.tick();
         }
         while (selection != 9 && petsAlive);
         System.out.println("Game Over!");
