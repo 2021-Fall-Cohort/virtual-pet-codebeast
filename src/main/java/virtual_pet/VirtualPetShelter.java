@@ -5,9 +5,6 @@ import java.util.Scanner;
 
 public class VirtualPetShelter {
 
-    private int petsAdopted = 0;
-    private int deathToll = 0;
-
     private ArrayList<VirtualPet> petShelter;
 
     String heading1 = "Name";

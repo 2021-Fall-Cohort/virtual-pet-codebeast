@@ -31,9 +31,27 @@ ArrayList<Monkey> testArray = new ArrayList<Monkey>();
         assertEquals(80, puppy.getThirstLevel());
     }
     @Test
-    public void testIfPetCanBeFed(){
-        Dog puppy = new Dog("Yuppie",19,100,100);
+    public void testIfPetCanPlay(){
+        Monkey myMonkey =  new Monkey("Simba",19,20,50);
+        myMonkey.play();
+        assertEquals(30,myMonkey.getBoredomLevel());
+    }
+
+    @Test
+    public void testIfPetCanBeAdopted(){
+
+        ArrayList<VirtualPet> petShelter = new ArrayList<VirtualPet>();
+        petShelter.add(new Lion("Simba", 25, 25, 25));
+        petShelter.remove(0);
+        assertTrue(petShelter.isEmpty());
+
+
+    }
+
+    @Test
+    public void testIfPetCanBeFed() {
+        Dog puppy = new Dog("Yuppie", 19, 100, 100);
         puppy.feed();
-        assertEquals(80,puppy.getThirstLevel());
+        assertEquals(100, puppy.getThirstLevel());
     }
 }
