@@ -5,7 +5,8 @@ import java.util.Scanner;
 
 public class VirtualPetShelter {
 
-    private ArrayList<VirtualPet> petShelter;
+    private ArrayList<OrganicPet> organicPetShelter;
+    private ArrayList<RoboticPet> roboPetShelter;
 
     String heading1 = "Name";
     String heading2 = "|Hunger";
@@ -16,17 +17,22 @@ public class VirtualPetShelter {
 
     Scanner mainScanner = new Scanner(System.in);
 
+    //constructor
     public VirtualPetShelter() {
-        petShelter = new ArrayList<VirtualPet>();
-        petShelter.add(new Lion("Simba", 25, 25, 25));
-        petShelter.add(new Dog("Spot", 25, 25, 25));
-        petShelter.add(new Monkey("Apu", 50, 50, 50));
+        organicPetShelter = new ArrayList<OrganicPet>();
+        organicPetShelter.add(new Lion("Simba", 25, 25, 25));
+        organicPetShelter.add(new Dog("Spot", 25, 25, 25));
+        organicPetShelter.add(new Monkey("Apu", 50, 50, 50));
+
+        roboPetShelter = new ArrayList<RoboticPet>();
+        roboPetShelter.add(new RoboDog("RoboKopi", 7, 100, 100));
+        roboPetShelter.add(new RoboLion("RoboSimba", 5, 100, 100));
     }
 
     //getters
     public void displayAllPetsDescriptions() {
-        for (int i = 0; i < petShelter.size(); i++) {
-            System.out.println("[" + petShelter.get(i).getName() + "]" + " " + petShelter.get(i));
+        for (int i = 0; i < organicPetShelter.size(); i++) {
+            System.out.println("[" + organicPetShelter.get(i).getName() + "]" + " " + organicPetShelter.get(i));
             System.out.println("");
         }
     }
@@ -34,14 +40,14 @@ public class VirtualPetShelter {
     public void displayHealthStatus() {
         System.out.printf("%-8s %-7s %-7s %-7s %-7s %n", heading1, heading2, heading3, heading4, heading5);
         System.out.println(divider);
-        for (int i = 0; i < petShelter.size(); i++) {
-            System.out.printf("%-10s %-7s %-7s %-7s %-7s  %n", petShelter.get(i).getName(),
-                    petShelter.get(i).getHungerLevel(), petShelter.get(i).getThirstLevel(), petShelter.get(i).getBoredomLevel(), petShelter.get(i).isCanAdopt());
+        for (int i = 0; i < organicPetShelter.size(); i++) {
+            System.out.printf("%-10s %-7s %-7s %-7s %-7s  %n", organicPetShelter.get(i).getName(),
+                    organicPetShelter.get(i).getHungerLevel(), organicPetShelter.get(i).getThirstLevel(), organicPetShelter.get(i).getBoredomLevel(), organicPetShelter.get(i).isCanAdopt());
         }
     }
 
-    public void addPetToShelter(VirtualPet pet) {
-        petShelter.add(pet);
+    public void addPetToShelter(OrganicPet pet) {
+        organicPetShelter.add(pet);
     }
 
     public void removePetFromShelter() {
@@ -49,31 +55,35 @@ public class VirtualPetShelter {
 
         String selectRemoval = mainScanner.nextLine();
         int missCounter = 0;
-        for (int i = 0; i < petShelter.size(); i++) {
-            if (selectRemoval.equalsIgnoreCase(petShelter.get(i).getName())) {
-                System.out.println(petShelter.get(i).getName() + " has been sent to their new home!\n");
-                petShelter.remove(i);
+        for (int i = 0; i < organicPetShelter.size(); i++) {
+            if (selectRemoval.equalsIgnoreCase(organicPetShelter.get(i).getName())) {
+                System.out.println(organicPetShelter.get(i).getName() + " has been sent to their new home!\n");
+                organicPetShelter.remove(i);
             } else {
                 missCounter++;
             }
         }
-        if (missCounter >= petShelter.size()) {
+        if (missCounter >= organicPetShelter.size()) {
             System.out.println("Pet not found.\n");
         }
     }
 
-    public ArrayList<VirtualPet> getPets() {
-        return petShelter;
+    public ArrayList<OrganicPet> getPets() {
+        return organicPetShelter;
     }
 
     public void tick() {
-        for (VirtualPet pet : petShelter) {
+        for (OrganicPet pet : organicPetShelter) {
+            pet.tick();
+        }
+
+        for (RoboticPet pet : roboPetShelter) {
             pet.tick();
         }
     }
 
     public boolean allPetsAlive() {
-        for (VirtualPet pet : petShelter) {
+        for (OrganicPet pet : organicPetShelter) {
             if (!pet.isAlive()) {
                 return false;
             }
@@ -82,19 +92,19 @@ public class VirtualPetShelter {
     }
 
     public void feedAllPets() {
-        for (VirtualPet pet : petShelter) {
+        for (OrganicPet pet : organicPetShelter) {
             pet.feed();
         }
     }
 
     public void giveWaterToAllPets() {
-        for (VirtualPet pet : petShelter) {
+        for (OrganicPet pet : organicPetShelter) {
             pet.giveWater();
         }
     }
 
     public void playWithAllPets() {
-        for (VirtualPet pet : petShelter) {
+        for (OrganicPet pet : organicPetShelter) {
             pet.play();
         }
     }
@@ -119,13 +129,13 @@ public class VirtualPetShelter {
 
         if (petType.equalsIgnoreCase("lion")) {
             Lion myLion = new Lion(addName, addAge, addThirst, addHunger);
-            petShelter.add(myLion);
+            organicPetShelter.add(myLion);
         } else if (petType.equalsIgnoreCase("dog")) {
             Dog myDog = new Dog(addName, addAge, addThirst, addHunger);
-            petShelter.add(myDog);
+            organicPetShelter.add(myDog);
         } else if (petType.equalsIgnoreCase("monkey")) {
             Monkey myMonkey = new Monkey(addName, addAge, addThirst, addHunger);
-            petShelter.add(myMonkey);
+            organicPetShelter.add(myMonkey);
         }
     }
 }

@@ -1,6 +1,6 @@
 package virtual_pet;
 
-public class Lion extends VirtualPet{
+public class Lion extends OrganicPet implements SharpenClaws{
 
     public Lion(String name, int age, int hungerLevel, int thirstLevel) {
         super(name,age, hungerLevel,thirstLevel);
@@ -27,4 +27,10 @@ public class Lion extends VirtualPet{
         System.out.println("Lion plays with beach-ball sized yarnball.");
         setMinMaxBoredom(boredomLevel);
     }
+
+    @Override
+    public void sharpenClaws(){
+        System.out.println(name + " sharpens claws on floor.");
+    }
+
 }

@@ -40,7 +40,7 @@ ArrayList<Monkey> testArray = new ArrayList<Monkey>();
     @Test
     public void testIfPetCanBeAdopted(){
 
-        ArrayList<VirtualPet> petShelter = new ArrayList<VirtualPet>();
+        ArrayList<OrganicPet> petShelter = new ArrayList<OrganicPet>();
         petShelter.add(new Lion("Simba", 25, 25, 25));
         petShelter.remove(0);
         assertTrue(petShelter.isEmpty());
