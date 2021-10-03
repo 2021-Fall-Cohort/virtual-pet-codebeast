@@ -12,6 +12,19 @@ public abstract class RoboticPet extends VirtualPet{
 
     }
 
+    protected abstract void oilLevel();
+
+    protected abstract void batteryLevel();
+
+
+    public int getOilLevel() {
+        return oilLevel;
+    }
+
+    public int getBatteryLevel() {
+        return batteryLevel;
+    }
+
     public void tick(){
         oilLevel -=10;
         batteryLevel -=10;

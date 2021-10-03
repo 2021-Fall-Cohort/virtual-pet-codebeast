@@ -12,4 +12,15 @@ public class RoboDog extends RoboticPet implements Walking {
     public void goesForAWalk() {
         System.out.println(name + " goes for a walk.");
     }
+
+
+@Override
+public void oilLevel(){
+        oilLevel +=20;
+
+}
+@Override
+public void batteryLevel(){
+        batteryLevel +=20;
+}
 }

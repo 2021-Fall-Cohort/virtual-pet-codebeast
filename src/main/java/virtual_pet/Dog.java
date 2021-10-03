@@ -33,4 +33,7 @@ public class Dog extends OrganicPet implements Walking{
     public void goesForAWalk(){
         System.out.println(name + " goes for a walk.");
     }
+
+
+
 }

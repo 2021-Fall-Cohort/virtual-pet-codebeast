@@ -15,6 +15,12 @@ public class VirtualPetShelter {
     String heading5 = "|Adoptable|";
     String divider = "---------|-------|-------|-------|-------";
 
+    String heading6 = "Name";
+    String heading7 = "|Oil";
+    String heading8 = "|Battery";
+    String heading9 = "|Boredom|";
+    String divider2 = "---------|-------|-------|-------";
+
     Scanner mainScanner = new Scanner(System.in);
 
     //constructor
@@ -27,6 +33,7 @@ public class VirtualPetShelter {
         roboPetShelter = new ArrayList<RoboticPet>();
         roboPetShelter.add(new RoboDog("RoboKopi", 7, 100, 100));
         roboPetShelter.add(new RoboLion("RoboSimba", 5, 100, 100));
+        roboPetShelter.add(new RoboMonkey("RoboApu",4,100,100));
     }
 
     //getters
@@ -37,12 +44,21 @@ public class VirtualPetShelter {
         }
     }
 
-    public void displayHealthStatus() {
+    public void displayHealthStatusOrganicPets() {
         System.out.printf("%-8s %-7s %-7s %-7s %-7s %n", heading1, heading2, heading3, heading4, heading5);
         System.out.println(divider);
         for (int i = 0; i < organicPetShelter.size(); i++) {
             System.out.printf("%-10s %-7s %-7s %-7s %-7s  %n", organicPetShelter.get(i).getName(),
                     organicPetShelter.get(i).getHungerLevel(), organicPetShelter.get(i).getThirstLevel(), organicPetShelter.get(i).getBoredomLevel(), organicPetShelter.get(i).isCanAdopt());
+        }
+    }
+
+    public void displayHealthStatusOfRoboPets() {
+        System.out.printf("%-8s %-7s %-7s %-7s  %n", heading6, heading7, heading8, heading9);
+        System.out.println(divider2);
+        for (int i = 0; i < organicPetShelter.size(); i++) {
+            System.out.printf("%-10s %-7s %-7s %-7s   %n", roboPetShelter.get(i).getName(),
+                    roboPetShelter.get(i).getOilLevel(), roboPetShelter.get(i).getBatteryLevel());
         }
     }
 
@@ -106,6 +122,17 @@ public class VirtualPetShelter {
     public void playWithAllPets() {
         for (OrganicPet pet : organicPetShelter) {
             pet.play();
+        }
+    }
+
+    public void oilRoboPet(){
+        for (RoboticPet pet: roboPetShelter){
+            pet.oilLevel();
+        }
+    }
+    public void chargeBattery(){
+        for (RoboticPet pet: roboPetShelter){
+            pet.batteryLevel();
         }
     }
 

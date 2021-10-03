@@ -8,12 +8,14 @@ public abstract class OrganicPet extends VirtualPet{
     protected int boredomLevel;
     protected boolean canAdopt;
 
+
     public OrganicPet(String name, int age, int hungerLevel, int thirstLevel) {
         super(name, age);
         this.hungerLevel = hungerLevel;
         this.thirstLevel = thirstLevel;
         this.boredomLevel = boredomLevel;
         this.canAdopt = false;
+
     }
 
     protected abstract void feed();
@@ -21,6 +23,8 @@ public abstract class OrganicPet extends VirtualPet{
     protected abstract void giveWater();
 
     protected abstract void play();
+
+
 
     //getters
 
