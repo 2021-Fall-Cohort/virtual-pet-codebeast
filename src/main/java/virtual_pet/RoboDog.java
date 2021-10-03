@@ -14,13 +14,16 @@ public class RoboDog extends RoboticPet implements Walking {
     }
 
 
-@Override
-public void oilLevel(){
-        oilLevel +=20;
+    @Override
+    protected void addOil() {
+        oilLevel += 20;
+        setOilLimit(oilLevel);
 
-}
-@Override
-public void batteryLevel(){
-        batteryLevel +=20;
-}
+    }
+
+    @Override
+    protected void chargeBattery() {
+        batteryLevel += 20;
+        setBatteryLimit(batteryLevel);
+    }
 }

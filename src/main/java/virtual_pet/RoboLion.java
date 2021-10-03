@@ -14,13 +14,17 @@ public class RoboLion extends RoboticPet implements SharpenClaws{
     }
 
     @Override
-    public void oilLevel(){
+    protected void addOil(){
         oilLevel +=20;
-
+        System.out.println(name + " ");
+        setOilLimit(oilLevel);
     }
 
     @Override
-    public void batteryLevel(){
+    protected void chargeBattery(){
         batteryLevel +=20;
+        System.out.println(name + " ");
+        setBatteryLimit(batteryLevel);
     }
+
 }

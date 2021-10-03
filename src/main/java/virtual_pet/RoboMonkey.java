@@ -10,14 +10,16 @@ public class RoboMonkey extends RoboticPet implements SharpenClaws {
     }
 
     @Override
-    public void oilLevel(){
+    protected void addOil(){
         oilLevel +=20;
+        setOilLimit(oilLevel);
 
     }
 
     @Override
-    public void batteryLevel(){
+    protected void chargeBattery(){
         batteryLevel +=20;
+        setBatteryLimit(batteryLevel);
     }
 }
 

@@ -22,8 +22,7 @@ public class VirtualPetApplication {
         do {
 
             adoptionCenter.displayHealthStatusOrganicPets();
-
-//            adoptionCenter.displayHealthStatusOfRoboPets();
+            adoptionCenter.displayHealthStatusOfRoboPets();
 
             System.out.println("\nPress 1 to feed the organic pets.");
             System.out.println("Press 2 to give the  organic pets water");
@@ -31,7 +30,7 @@ public class VirtualPetApplication {
             System.out.println("Press 4 to oil Robopets");
             System.out.println("Press 5 to charge the battery of RoboPets");
             System.out.println("Press 6 to admit a pet into shelter!");
-            System.out.println("Press 7 to find pet a good home (must be healthy and happy)");
+            System.out.println("Press 7 to find pet a good home");
             System.out.println("Press 9 to exit.\n");
             selection = mainScanner.nextInt();
             mainScanner.nextLine();
