@@ -1,8 +1,11 @@
 package virtual_pet;
 
 public class RoboMonkey extends RoboticPet implements SharpenClaws {
+
     public RoboMonkey(String name, int age, int oilLevel, int batteryLevel) {
         super(name, age, oilLevel, batteryLevel);
+        this.oilLevel = oilLevel;
+        this.batteryLevel = batteryLevel;
     }
     @Override
     public void sharpenClaws() {

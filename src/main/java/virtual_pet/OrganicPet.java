@@ -1,6 +1,6 @@
 package virtual_pet;
 
-public abstract class OrganicPet extends VirtualPet{
+public abstract class OrganicPet extends VirtualPet {
 
     protected int hungerLevel;
     protected int thirstLevel;
@@ -19,13 +19,11 @@ public abstract class OrganicPet extends VirtualPet{
     }
 
     protected abstract void feed();
-
     protected abstract void giveWater();
-
     protected abstract void play();
 
-    //getters
 
+    //getters
     public int getHungerLevel() {
         return hungerLevel;
     }
@@ -41,6 +39,8 @@ public abstract class OrganicPet extends VirtualPet{
     public boolean isCanAdopt() {
         return canAdopt;
     }
+
+
     public boolean isAlive(){
         if(hungerLevel == 100 || thirstLevel == 100 || boredomLevel == 100){
             return false;
@@ -49,38 +49,38 @@ public abstract class OrganicPet extends VirtualPet{
     }
 
     //setters
-    protected int setMinMaxHunger(int n) {
+    protected void setMinMaxHunger(int n) {
         if (hungerLevel > 100 ) {
             hungerLevel = 100;
         } else if (hungerLevel < 0) {
             hungerLevel = 0;
         }
-        return hungerLevel;
     }
 
-    protected int setMinMaxThirst(int n) {
+    protected void setMinMaxThirst(int n) {
         if (thirstLevel > 100 ) {
             thirstLevel = 100;
         } else if (thirstLevel < 0) {
             thirstLevel = 0;
         }
-        return thirstLevel;
     }
 
-    protected int setMinMaxBoredom(int n) {
+    protected void setMinMaxBoredom(int n) {
         if (boredomLevel > 100) {
             boredomLevel = 100;
         } else if (boredomLevel < 0) {
             boredomLevel = 0;
         }
-        return boredomLevel;
     }
-
 
     public void tick(){
         hungerLevel += 5;
         thirstLevel += 5;
-        boredomLevel+= 5;
+        boredomLevel += 5;
+
+        setMinMaxHunger(hungerLevel);
+        setMinMaxThirst(thirstLevel);
+        setMinMaxBoredom(boredomLevel);
 
     }
 }

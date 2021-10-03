@@ -31,18 +31,18 @@ public class VirtualPetShelter {
         organicPetShelter.add(new Monkey("Apu", 50, 50, 50));
 
         roboPetShelter = new ArrayList<RoboticPet>();
-        roboPetShelter.add(new RoboDog("RoboKopi", 7, 100, 100));
-        roboPetShelter.add(new RoboLion("RoboSimba", 5, 100, 100));
-        roboPetShelter.add(new RoboMonkey("RoboApu", 4, 100, 100));
+        roboPetShelter.add(new RoboDog("RoboKopi", 7, 80, 80));
+        roboPetShelter.add(new RoboLion("RoboSimba", 5, 80, 80));
+        roboPetShelter.add(new RoboMonkey("RoboApu", 4, 80, 80));
     }
 
     //getters
-    public void displayAllPetsDescriptions() {
-        for (int i = 0; i < organicPetShelter.size(); i++) {
-            System.out.println("[" + organicPetShelter.get(i).getName() + "]" + " " + organicPetShelter.get(i));
-            System.out.println("");
-        }
-    }
+//    public void displayAllPetsDescriptions() {
+//        for (int i = 0; i < organicPetShelter.size(); i++) {
+//            System.out.println("[" + organicPetShelter.get(i).getName() + "]" + " " + organicPetShelter.get(i));
+//            System.out.println("");
+//        }
+//    }
 
     public void displayHealthStatusOrganicPets() {
         System.out.printf("%-8s %-7s %-7s %-7s %n", heading1, heading2, heading3, heading4);
@@ -70,16 +70,25 @@ public class VirtualPetShelter {
         System.out.println("Which pet did you find a home for?");
 
         String selectRemoval = mainScanner.nextLine();
-        int missCounter = 0;
+        int totalArrays = organicPetShelter.size() + roboPetShelter.size();
+        
         for (int i = 0; i < organicPetShelter.size(); i++) {
             if (selectRemoval.equalsIgnoreCase(organicPetShelter.get(i).getName())) {
                 System.out.println(organicPetShelter.get(i).getName() + " has been sent to their new home!\n");
                 organicPetShelter.remove(i);
-            } else {
-                missCounter++;
+                break;
             }
         }
-        if (missCounter >= organicPetShelter.size()) {
+
+        for (int i = 0; i < roboPetShelter.size(); i++) {
+            if (selectRemoval.equalsIgnoreCase(roboPetShelter.get(i).getName())) {
+                System.out.println(roboPetShelter.get(i).getName() + " has been sent to their new home!\n");
+                roboPetShelter.remove(i);
+                break;
+            }
+        }
+
+        if (totalArrays == organicPetShelter.size() + roboPetShelter.size()) {
             System.out.println("Pet not found.\n");
         }
     }
@@ -168,15 +177,15 @@ public class VirtualPetShelter {
             organicPetShelter.add(myMonkey);
 
         } else if (petType.equalsIgnoreCase("RoboLion")) {
-            RoboLion myRoboLion = new RoboLion(addName, addAge, 100, 100);
+            RoboLion myRoboLion = new RoboLion(addName, addAge, 80, 80);
             roboPetShelter.add(myRoboLion);
 
         } else if (petType.equalsIgnoreCase("RoboDog")) {
-            RoboDog myRoboDog = new RoboDog(addName, addAge, 100, 100);
+            RoboDog myRoboDog = new RoboDog(addName, addAge, 80, 80);
             roboPetShelter.add(myRoboDog);
 
         } else if (petType.equalsIgnoreCase("RoboMonkey")) {
-            RoboMonkey myRoboMonkey = new RoboMonkey(addName, addAge, 100, 100);
+            RoboMonkey myRoboMonkey = new RoboMonkey(addName, addAge, 80, 80);
             roboPetShelter.add(myRoboMonkey);
         } else {
             System.out.println("Invalid Selection.");

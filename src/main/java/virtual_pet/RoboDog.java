@@ -4,8 +4,8 @@ public class RoboDog extends RoboticPet implements Walking {
 
     public RoboDog(String name, int age, int oilLevel, int batteryLevel) {
         super(name, age, oilLevel, batteryLevel);
-
-
+        this.oilLevel = oilLevel;
+        this.batteryLevel = batteryLevel;
     }
 
     @Override
