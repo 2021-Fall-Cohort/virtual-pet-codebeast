@@ -1,20 +1,22 @@
 package virtual_pet;
 
-public abstract class OrganicPet extends VirtualPet {
+public abstract class OrganicPet extends VirtualPet{
 
     protected int hungerLevel;
     protected int thirstLevel;
     protected int boredomLevel;
 
     protected boolean canAdopt;
+    protected int cleanliness;
 
 
-    public OrganicPet(String name, int age, int hungerLevel, int thirstLevel) {
+    public OrganicPet(String name, int age, int hungerLevel, int thirstLevel, int cleanliness) {
         super(name, age);
         this.hungerLevel = hungerLevel;
         this.thirstLevel = thirstLevel;
         this.boredomLevel = boredomLevel;
         this.canAdopt = false;
+        this.cleanliness = cleanliness;
 
     }
 
@@ -40,6 +42,9 @@ public abstract class OrganicPet extends VirtualPet {
         return canAdopt;
     }
 
+    public int getCleanliness() {
+        return cleanliness;
+    }
 
     public boolean isAlive(){
         if(hungerLevel == 100 || thirstLevel == 100 || boredomLevel == 100){
@@ -77,6 +82,7 @@ public abstract class OrganicPet extends VirtualPet {
         hungerLevel += 5;
         thirstLevel += 5;
         boredomLevel += 5;
+        cleanliness +=5;
 
         setMinMaxHunger(hungerLevel);
         setMinMaxThirst(thirstLevel);

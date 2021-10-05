@@ -8,6 +8,7 @@ public class VirtualPetApplication {
     public static void main(String[] args) {
         VirtualPetApplication myApp = new VirtualPetApplication();
         myApp.game();
+
     }
 
     public void game() {
@@ -42,7 +43,7 @@ public class VirtualPetApplication {
                 adoptionCenter.giveWaterToAllPets();
 
             } else if (selection == 3) {
-                adoptionCenter.playWithAllPets();
+                adoptionCenter.playWithPets();
 
             } else if (selection == 4) {
                 adoptionCenter.oilRoboPet();

@@ -1,6 +1,6 @@
 package virtual_pet;
 
-public class RoboLion extends RoboticPet implements SharpenClaws{
+public class RoboLion extends RoboticPet implements PowerSwitch {
 
     public RoboLion(String name, int age, int oilLevel, int batteryLevel) {
         super(name, age, oilLevel, batteryLevel);
@@ -9,10 +9,7 @@ public class RoboLion extends RoboticPet implements SharpenClaws{
     }
 
 
-    @Override
-    public void sharpenClaws() {
-        System.out.println(name + " sharpens robo claws on floor.");
-    }
+
 
     @Override
     protected void addOil(){
@@ -28,4 +25,17 @@ public class RoboLion extends RoboticPet implements SharpenClaws{
         setBatteryLimit(batteryLevel);
     }
 
+    @Override
+    protected void play() {
+        batteryLevel -=10;
+        setBatteryLimit(batteryLevel);
+        System.out.println(name + " does robo tricks");
+    }
+
+    @Override
+    public void powerSwitch() {
+        if(batteryLevel <=0){
+            System.out.println("Robotic Lion has been switched off ");
+        }
+    }
 }

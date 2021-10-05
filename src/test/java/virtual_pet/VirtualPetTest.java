@@ -12,7 +12,7 @@ public class VirtualPetTest {
 
     @Test
     public void testIfPetHasAName() {
-        Lion Simba = new Lion("Simba", 9, 15, 30);
+        Lion Simba = new Lion("Simba", 9, 15, 30,30);
         String name = Simba.getName();
         assertEquals("Simba", name);
     }
@@ -20,19 +20,19 @@ public class VirtualPetTest {
    @Test
   public void testIfCanCreateAPet(){
 ArrayList<Monkey> testArray = new ArrayList<Monkey>();
-      Monkey myMonkey =  new Monkey("Simba",19,20,50);
+      Monkey myMonkey =  new Monkey("Simba",19,20,50,30);
       assertTrue(myMonkey != null);
 
 }
     @Test
     public void testIfPetCanDrink(){
-        Dog puppy = new Dog("Yuppie",19,25,100);
+        Dog puppy = new Dog("Yuppie",19,25,100,30);
         puppy.giveWater();
         assertEquals(80, puppy.getThirstLevel());
     }
     @Test
     public void testIfPetCanPlay(){
-        Monkey myMonkey =  new Monkey("Simba",19,20,50);
+        Monkey myMonkey =  new Monkey("Simba",19,20,50,30);
         myMonkey.play();
         assertEquals(30,myMonkey.getBoredomLevel());
     }
@@ -41,7 +41,7 @@ ArrayList<Monkey> testArray = new ArrayList<Monkey>();
     public void testIfPetCanBeAdopted(){
 
         ArrayList<OrganicPet> petShelter = new ArrayList<OrganicPet>();
-        petShelter.add(new Lion("Simba", 25, 25, 25));
+        petShelter.add(new Lion("Simba", 25, 25, 25,30));
         petShelter.remove(0);
         assertTrue(petShelter.isEmpty());
 
@@ -50,7 +50,7 @@ ArrayList<Monkey> testArray = new ArrayList<Monkey>();
 
     @Test
     public void testIfPetCanBeFed() {
-        Dog puppy = new Dog("Yuppie", 19, 100, 100);
+        Dog puppy = new Dog("Yuppie", 19, 100, 100,30);
         puppy.feed();
         assertEquals(100, puppy.getThirstLevel());
     }

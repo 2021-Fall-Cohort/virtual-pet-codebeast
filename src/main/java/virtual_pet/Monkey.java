@@ -1,9 +1,9 @@
 package virtual_pet;
 
-public class Monkey extends OrganicPet {
+public class Monkey extends OrganicPet implements Walking{
 
-    public Monkey(String name, int age, int hungerLevel, int thirstLevel) {
-        super(name, age, hungerLevel, thirstLevel);
+    public Monkey(String name, int age, int hungerLevel, int thirstLevel, int cleanliness) {
+        super(name, age, hungerLevel, thirstLevel, cleanliness);
         this.boredomLevel = 50;
         this.canAdopt = false;
     }
@@ -27,5 +27,12 @@ public class Monkey extends OrganicPet {
         boredomLevel -= 20;
         System.out.println(name + " swings from rafters");
         setMinMaxBoredom(boredomLevel);
+    }
+
+    @Override
+    public void goesForAWalk() {
+        System.out.println(name + " goes for walk");
+        boredomLevel -=5;
+        cleanliness -=5;
     }
 }

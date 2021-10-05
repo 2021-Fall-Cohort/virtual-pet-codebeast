@@ -1,6 +1,6 @@
 package virtual_pet;
 
-public class RoboDog extends RoboticPet implements Walking {
+public class RoboDog extends RoboticPet implements PowerSwitch {
 
     public RoboDog(String name, int age, int oilLevel, int batteryLevel) {
         super(name, age, oilLevel, batteryLevel);
@@ -8,10 +8,7 @@ public class RoboDog extends RoboticPet implements Walking {
         this.batteryLevel = batteryLevel;
     }
 
-    @Override
-    public void goesForAWalk() {
-        System.out.println(name + " goes for a walk.");
-    }
+
 
 
     @Override
@@ -25,5 +22,19 @@ public class RoboDog extends RoboticPet implements Walking {
     protected void chargeBattery() {
         batteryLevel += 20;
         setBatteryLimit(batteryLevel);
+    }
+
+    @Override
+    protected void play() {
+        batteryLevel -=10;
+        setBatteryLimit(batteryLevel);
+        System.out.println(name + " does robo tricks");
+    }
+
+    @Override
+    public void powerSwitch() {
+        if(batteryLevel <=0){
+            System.out.println("Robotic Dog has been switched off ");
+        }
     }
 }

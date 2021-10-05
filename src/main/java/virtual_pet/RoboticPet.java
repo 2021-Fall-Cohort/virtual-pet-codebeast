@@ -13,6 +13,7 @@ public abstract class RoboticPet extends VirtualPet {
 
     protected abstract void addOil();
     protected abstract void chargeBattery();
+    protected abstract void play();
 
     //getters
     public int getOilLevel() {
